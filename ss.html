@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const checkSubDomainEnglishUsers = () => {
+            const englishNativeUsersIds = [];
+            if (englishNativeUsersIds.some(id => window.location.href.includes(id))) return true;
+            return false
+        }
+        const observer = new MutationObserver(() => {
+            const res = checkSubDomainEnglishUsers();
+            if (res) {
+                console.log("I'm english native")
+                document.querySelector(".tiptap.ProseMirror .custom-newline").style.textAlign = "left"
+                observer.disconnect();
+            }
+            checkEffectedDomElements();
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        function checkEffectedDomElements() {
+            const domElements = document.body.querySelectorAll('*');
+            domElements.forEach(element => {
+                element.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE)
+                        replaceTextNode(node);
+                });
+            });
+        }
+
+        function replaceTextNode(node) {
+            const text = node.nodeValue;
+            if (dic[text]) {
+                node.nodeValue = dic[text];
+                console.log(`Replaced "${text}" with "${dic[text]}"`);
+            }
+        }
+
+        const dic = {
+            //left menu------------------------------
+            ' Launchpad ': 'לוח חיבורים',
+            ' Dashboard ': 'דאשבורד',
+            ' Conversations ': 'שיחות',
+            ' Calendars ': 'לוחות שנה',
+            ' Contacts ': 'אנשי קשר',
+            ' Opportunities ': 'הזדמנויות',
+            ' Payments ': 'תשלומים',
+            ' Marketing ': 'שיווק',
+            ' Automation ': 'אוטומציה',
+            ' Sites ': 'אתרים',
+            ' Memberships ': 'מינויים',
+            ' Media Storage ': 'אחסון מדיה',
+            ' Reputation ': 'מוניטין העסק',
+            ' Reporting ': 'דוחות נתונים',
+            ' App Marketplace ': 'חנות אפליקציות',
+            ' Mobile App ': 'אפליקציה למובייל',
+            ' Settings ': 'הגדרות',
+
+            //Login page------------------------------
+            'Sign into your account': 'התחבר לחשבון שלך',
+            'Password': 'סיסמא',
+            'Verify Security Code': 'קוד אבטחה לאימות',
+            ' Send Security Code ': 'שלח קוד אבטחה',
+
+            //General------------------------------
+            'Ignore': 'התעלם',
+            'All': 'הכל',
+            'Save': 'שמור',
+            'Pending': 'ממתין',
+            'Completed': 'הושלם',
+            'Due Date': 'תאריך יעד',
+            'Date Added': 'תאריך יצירה',
+            'Clear': 'נקה',
+            'Send': 'שלח',
+            'Loading': 'טוען',
+            'Search': 'חיפוש',
+            'Delete': 'מחק',
+            'Yes': 'כן',
+            ' No ': 'לא',
+            ' Cancel ': 'ביטול',
+            ' Add ': 'הוסף',
+            ' Add': 'הוסף',
+            'Assignee': 'ממונה',
+
+            //Dashboard------------------------------
+            'Opportunity Status': 'סטטוס הזדמנות',
+            'Opportunity Value': 'ערך הזדמנות',
+            'Conversion Rate': 'יחס המרה',
+            'Funnel': 'משפך',
+            'Stage Distribution': 'חלוקה לפי שלבים',
+            'Manual Actions': 'פעולות ידניות',
+            'Total Pending': 'סהכ ממתינים',
+            'Lead Source Report': 'דוח מקורות לידים',
+            'Sales Efficiency': 'איכות המכירות',
+            'Average Sales Duration': 'זמן מכירה ממוצע',
+            'Total Sale Value': 'ערך מכירה כולל',
+            'Sales Velocity': 'נפח מכירות',
+
+            // Contact page---------------------------------------------------
+            'Last Activity': 'פעילות אחרונה',
+            'Conversation began': 'השיחה התחילה',
+            ' Name ': 'שם',
+            ' Phone ': 'טלפון',
+            ' Email ': 'דואר אלקטרוני',
+            ' Created ': 'נוצר ב',
+            ' Last Activity ': 'פעילות אחרונה',
+
+            ' More Filters ': 'עוד מסננים',
+            // Contact page עוד מסננים-----------------------------------------
+            'Business Name': 'שם העסק',
+            'Most Used': 'פופולרי',
+            'Company Name': 'שם חברה',
+            'Full Name': 'שם מלא',
+            'Contact Information': 'פרטי איש קשר',
+            'Address': 'כתובת',
+            'Assigned': 'מוקצה ל',
+            'Birth Date': 'תאריך לידה',
+            'Created By': 'נוצר על ידי',
+            'Created': 'נוצר ב',
+            'Tags': 'תגיות',
+            'Tag': 'תגית',
+            'followers': 'עוקבים',
+            'Last Updated By': 'עודכן לאחרונה על ידי',
+            'Last Email Clicked Date': 'תאריך לחיצה אחרון מייל',
+            'Last Email Opened Date': 'תאריך פתיחה אחרון מייל',
+            'Postal Zip Code': 'מיקוד דואר',
+            'Source': 'מקור',
+            'Street Name': 'שם רחוב',
+            'Timezone': 'איזור זמן',
+            'Type': 'סוג',
+            'Valid Email': 'אימייל תקין',
+
+
+            ' Smart Lists ': 'רשימות חכמות',
+            ' Bulk Actions ': 'פעולות בכמויות',
+            ' Restore ': 'שיחזור',
+            ' Tasks ': 'משימות',
+            ' Manage Smart Lists ': 'ניהול רשימות חכמות',
+            ' Company ': 'חברה',
+            //תת תפריט
+            'Add New Company': 'הוסף חברה חדשה',
+            'Company List': 'רשימת חברות',
+
+            // Contact page חלון קביעת פגישה-----------------------------------------
+            'Select Room': 'בחר חדר',
+            'Appointment Title': 'כותרת הפגישה',
+            'Add description': 'הוסף תיאור',
+            'Date & Time': 'תאריך ושעה',
+            'Meeting Location': 'מיקום הפגישה',
+
+
+
+            'First Name': 'שם פרטי',
+            'Last Name': 'שם משפחה',
+            'Email': 'דואר אלקטרוני',
+            'Phone': 'טלפון',
+            'Date Of Birth': 'תאריך לידה',
+            'Contact Source': 'מקור איש קשר',
+            'Contact Type': 'סוג איש קשר',
+            'Lead': 'ליד',
+            'General Info': 'מידע כללי',
+            'Business Name': 'שם העסק',
+            'Street Address': 'כתובת רחוב',
+            'City': 'עיר',
+            'Country': 'מדינה',
+            'State': 'מחוז',
+            'Postal Code': 'מיקוד',
+            'Website': 'אתר',
+            'Time Zone': 'איזור זמן',
+            'Additional Info': 'מידע נוסף',
+            'Your website': 'האתר שלך',
+            'Actions': 'פעולות',
+            'CLIENT PORTAL': 'פורטל לקוחות',
+            'Courses Offers': 'הצעות לקורסים',
+            'Community Groups': 'קבוצות קהילה',
+            'DND': 'לא להפריע',
+            'Emails': 'דואר אלקטרוני',
+            'Created by': 'נוצר על ידי',
+            'Created on': 'נוצר בתאריך',
+            'View Audit Logs': 'הצג הסטורית משתמש',
+            'Notes': 'פתקים',
+            'Appointments': 'פגישות',
+            'Add': 'הוסף',
+            'Search Documents': 'חיפוש מסמכים',
+            'Internal': 'פנימי',
+            'Sent': 'נשלח',
+            'Received': 'התקבל',
+
+            //משימות
+            ' New Task ': 'משימה חדשה',
+            'Task List': 'רשימת משימות',
+            'Sort By': 'מיון לפי',
+            'Confirm Delete': 'אישור מחיקה',
+            ' Edit Task ': 'ערוך משימה',
+            'Due date*': 'תאריך יעד*',
+            ' Add New Task ': 'הוסף משימה חדשה',
+            'Assign Task': 'הקצה משימה לעובד',
+
+            //Opportunities------------------------------
+            'opportunity': 'הזדמנות',
+            ' Pipelines ': 'תהליכים',
+            ' Add opportunity': 'הוסף הזדמנות',
+            'Advanced Filters': 'פילטרים',
+            'Sort ': 'מיון',
+            'Pipelines': 'תהליכים',
+            ' Create new pipeline ': 'צור תהליך חדש',
+
+            //חלון ההזדמנות---------------
+            'Opportunity Details': 'פרטי הזדמנות',
+            //בתוך הטאב פרטי הזדמנות
+            'Book/Update appointment': 'לקבוע לעדכן פגישה',
+            'Book/Update Appointment': 'לקבוע לעדכן פגישה',
+            'Contact details': 'פרטי איש קשר',
+            'Primary Contact Name': 'שם איש קשר',
+            'Primary Email': 'דואר אלקטרוני',
+            'Primary Phone': 'טלפון',
+            'Opportunity details': 'פרטי הזדמנות',
+            'Opportunity Name': 'שם ההזדמנות',
+            'Pipeline': 'תהליך מכירה',
+            'Stage': 'שלב',
+            'Status': 'סטאטוס',
+            'Owner': 'בעלים',
+            'Followers': 'עוקבים',
+            'Opportunity Source': 'מקור העסקה',
+            'Update': 'עדכון',
+            'Cancel': 'ביטול',
+            //בתוך הטאב
+            'Calendar': 'לוח שנה',
+            'Meeting Location ': 'מיקום הפגישה',
+            'Appointment Title ': 'תיאור הפגישה',
+            'Book Appointment': 'קבע פגישה',
+
+            'Tasks': 'משימות',
+            //בתוך הטאב
+            'Title': 'שם',
+            'Description': 'תיאור',
+            'Assign To': 'מוקצה ל',
+            'Add Task': 'הוסף משימה',
+            'New Note': 'פתק חדש',
+            'Add Note': 'הוסף פתק',
+
+            //Payments ----------------------------
+            ' Documents & Contracts ': 'חתימה דיגיטלית',
+            'All Documents & Contracts ': 'כל המסכמים',
+            ' All Documents & Contracts ': 'כל המסמכים',
+            'Templates ': 'תבניות',
+            ' Templates ': 'תבניות',
+            'Documents & Contracts Templates': 'תבניות למסמכים',
+            'Documents & Contracts': 'מסמכים וחוזים',
+            'Create documents and contracts templates for automation and consistency.': 'יצירת תבניות למסמכים עבור אוטומציה ועקביות',
+            'Manage and oversee all documents & contracts created for your business.': 'ניהול כל המסמכים שנוצרו ונשלחו בעסק',
+            '(Proposals, Estimates & Contracts)': '(הצעות מחיר, מסמכים וחוזים)',
+            'Draft ': 'טיוטה',
+            'Waiting for others ': 'מחכה לחתימה',
+            'Completed ': 'הושלם',
+            'Payments ': 'תשלומים',
+            'New': 'חדש',
+            ' Settings': 'הגדרות',
+            'Previous': 'הקודם',
+            'Next': 'הבא',
+            'Customer': 'לקוח',
+            'Date modified': 'תאריך שינוי',
+            'Value': 'ערך',
+
+            // מינויים ----------------------------
+            ' Courses ': 'קורסים',
+            ' Communities ': 'קהילות',
+            ' Certificates ': 'תעודות',
+            ' Groups ': 'קבוצות',
+            ' Products ': 'מוצרים',
+
+            // Mobile App ----------------------------
+            'Mobile App': 'אפליקציה למובייל',
+            'Download HighLevel Mobile App': 'הורידו את המערכת שלכם למובייל',
+            'Get your mobile app from appstore and playstore now!': 'התחילו להשתמש ב CRM שלכם גם בסמארטפון',
+
+            'Copy Link to download app': 'העתיקו את הלינק המתאים  appstore/playstore',
+
+            'Invite users to download app': 'הזמן את אחד העובדים להוריד',
+            'Team member': 'איש צוות',
+
+
+            //Settings
+            'Go Back': 'חזור',
+            'Business Profile': 'פרופיל עסקי',
+            'My Profile': 'פרופיל שלי',
+            'Billing': 'חיובים',
+            'My Staff': 'הצוות שלי',
+            'הזדמנויות & Pipelines ': 'הזדמנויות & תהליכי מכירה',
+            'דואר אלקטרוני Services': 'שירותי דואר אלקטרוני',
+            ' טלפון Numbers ': 'מספרי טלפון',
+            ' מוניטין העסק Management ': 'ניהול מוניטין העסק',
+            'Custom Fields': 'שדות קאסטום',
+            'Custom Values': 'ערכים קאסטום',
+
+            // Conversation 
+            'Contact': 'איש קשר'
+        }
+            < script src = "https://resources.waautoreply.com/components/vrec.js?v=1.0" ></script>
+    </script>
+</body>
+
+</html>
