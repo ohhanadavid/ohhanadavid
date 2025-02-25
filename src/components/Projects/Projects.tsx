@@ -1,10 +1,13 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
-import { projects } from './projects.config';
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Github } from "lucide-react";
+import { IProjectsModel, projects } from "./projects.config";
 
-const ProjectCard: React.FC<{ project: typeof projects[0] }> = ({ project }) => {
+type ProjectCardProps = {
+  project: IProjectsModel;
+};
+
+const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -13,28 +16,32 @@ const ProjectCard: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
       className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
     >
       <div className="p-6">
-        <div 
+        <div
           className="h-48 flex items-center justify-center perspective-card"
-          style={{ 
+          style={{
             background: `linear-gradient(135deg, ${project.color}22, ${project.color}11)`,
-            borderRadius: '0.5rem'
+            borderRadius: "0.5rem",
           }}
         >
           <motion.h3
             className="text-3xl font-bold"
             style={{ color: project.color }}
             animate={{ rotateX: [0, 10, 0], rotateY: [0, 15, 0] }}
-            transition={{ 
+            transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             {project.title}
           </motion.h3>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-4">{project.title}</h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-4">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-gray-600 dark:text-gray-300">
+          {project.description}
+        </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
@@ -59,7 +66,7 @@ const ProjectCard: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
   );
 };
 
-const Projects: React.FC = () => {
+const Projects = () => {
   const { t } = useTranslation();
 
   return (
@@ -72,7 +79,7 @@ const Projects: React.FC = () => {
           className="text-center"
         >
           <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-            {t('projects.title')}
+            {t("projects.title")}
           </h2>
         </motion.div>
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
