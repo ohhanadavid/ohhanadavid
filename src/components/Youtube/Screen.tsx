@@ -1,6 +1,8 @@
 // src/components/YouTubePlayerButton.js
 
-import React, { useState, useRef } from 'react';
+import { use } from 'i18next';
+import { Youtube } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
 import YouTube from 'react-youtube'; // ייבוא הקומפוננטה של נגן יוטיוב
 
 interface YouTubePlayerButtonProps {
@@ -11,6 +13,9 @@ const YouTubePlayerButton: React.FC<YouTubePlayerButtonProps> = ({ videoId }) =>
   const [showPlayer, setShowPlayer] = useState(false); // מצב לשליטה על הצגת הנגן
   const playerRef = useRef<YT.Player | null>(null); // Ref לגישה ישירה לאובייקט הנגן
 
+useEffect(() => {
+  console.log('YouTube Player Button component mounted', videoId);
+}, []);
   // אופציות לנגן יוטיוב
   const opts = {
     height: '390',
@@ -62,33 +67,41 @@ const onStateChange = (event: YouTubePlayerStateChangeEvent) => {
 };
 
   return (
-    <div style={{ textAlign: 'center', margin: '20px' }}>
-      {!showPlayer && ( // מציג את הכפתור רק אם הנגן לא מוצג
+    <div >
+      {!showPlayer && (
         <button
           onClick={handlePlayClick}
-          style={{
-            padding: '10px 20px',
-            fontSize: '18px',
-            backgroundColor: '#ff0000',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            marginBottom: '20px',
-            transition: 'background-color 0.3s ease',
-          }}
+          className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
         >
-          הפעל סרטון
+            <Youtube className="h-5 w-5 mr-2" />
+            Video
         </button>
       )}
 
-      {showPlayer && ( // מציג את הנגן רק אם showPlayer הוא true
-        <YouTube
-          videoId={videoId} // מזהה הסרטון
-          opts={opts} // אופציות הנגן
-          onReady={onReady} // פונקציה שנקראת כשהנגן מוכן
-          onStateChange={onStateChange} // פונקציה שנקראת כשמצב הנגן משתנה
-        />
+      {showPlayer && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-4 relative w-full max-w-2xl">
+            <button
+              onClick={() => setShowPlayer(false)}
+              className="absolute -top-1 right-2 text-gray-700 text-red-400 text-2xl font-bold hover:text-red-600 "
+              aria-label="סגור"
+            >
+              ×
+            </button>
+            <div className="w-full  h-[70vh] ">
+              <YouTube
+                videoId={videoId}
+                opts={{
+                  ...opts,
+                  width: '100%',
+                  //height: '100%',
+                }}
+                onReady={onReady}
+                onStateChange={onStateChange}
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

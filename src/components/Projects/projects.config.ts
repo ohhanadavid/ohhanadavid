@@ -16,7 +16,7 @@ export const projects: IProjectsModel[] = [
         description: 'A smart system that delivers personalized news directly to users via email, SMS, or WhatsApp. It filters and presents the most relevant content to each individual, ensuring that truly important information reaches you easily and quickly.',
         technologies: ['Spring Boot','Spring Gateway', 'Kafka', 'PostgreSQL', 'Docker', 'AWS','Gemini','JWT','KeyCloak','Python' ],
         repoUrl: 'https://github.com/ohhanadavid/news-ai',
-        videoUrl: 'https://youtu.be/VnCFvYnICuY',
+        videoUrl: 'https://youtu.be/GKZlytKSyWk',
         linkUrl: 'https://david-ohhana.com/',
         color: `#2978C6`
     },

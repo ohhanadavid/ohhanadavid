@@ -34,7 +34,7 @@ const SkillsCard = ({ skill }: SkillsProps) => {
               ease: "easeInOut",
             }}
           >
-            <img src={skill.url} alt={skill.title} className="h-24 w-24 object-contain" />
+            <img src={skill.url} alt={skill.title} loading="lazy" className="h-24 w-24 object-contain" />
           </motion.h3>
         </div>
       </div>
@@ -71,9 +71,16 @@ const Skills = () => {
         </motion.div>
          <div className="mt-12 grid gap-8 md:grid-cols-12 lg:grid-cols-6 mb-8">
           {skills.filter(s=>s.category==="backend").map((skill) => (
+            <div>
             <SkillsCard key={skill.id} skill={skill} />
+             <h2 className="text-1xl font-extrabold text-gray-900 dark:text-white sm:text-1xl mt-1 ml-2">
+            {skill.title}
+          </h2>
+          </div>
           ))}
+          
         </div>
+       
           <motion.div id="skills-frontend"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -87,7 +94,12 @@ const Skills = () => {
         </motion.div>
          <div className="mt-12 grid gap-8 md:grid-cols-12 lg:grid-cols-6 mb-8">
           {skills.filter(s=>s.category==="frontend").map((skill) => (
+            <div>
             <SkillsCard key={skill.id} skill={skill} />
+              <h2 className="text-1xl font-extrabold text-gray-900 dark:text-white sm:text-1xl mt-1 ml-2">
+            {skill.title}
+          </h2>
+          </div>
           ))}
         </div>
           <motion.div id="skills-tools"
@@ -102,7 +114,12 @@ const Skills = () => {
         </motion.div>
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-6">
           {skills.filter(x=>x.category==="tools").map((skill) => (
+            <div>
             <SkillsCard key={skill.id} skill={skill} />
+              <h2 className="text-1xl font-extrabold text-gray-900 dark:text-white sm:text-1xl mt-1 ml-2">
+            {skill.title}
+          </h2>
+          </div>
           ))}
         </div>
       </div>

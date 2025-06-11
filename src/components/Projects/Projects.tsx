@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Github,Youtube,Globe } from "lucide-react";
 import { IProjectsModel, projects } from "./projects.config";
+import YouTubePlayerButton from "../Youtube/Screen";
 
 type ProjectCardProps = {
   project: IProjectsModel;
@@ -77,16 +78,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           link
         </a>}
         <br />
-        {project.videoUrl &&<a
-          href={project.videoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
-          
-        >
-          <Youtube className="h-5 w-5 mr-2" />
-          Video
-        </a>}
+         {project.videoUrl &&
+         <YouTubePlayerButton
+          videoId={project.videoUrl.split('youtu.be/')[1]}
+        />}
       </div>
     </motion.div>
   );
