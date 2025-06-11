@@ -112,7 +112,7 @@ export const skills: ISkillsModel[] = [
         id: 19,
         title: 'JWT',
         category: 'tools',
-        url: 'https://jwt.io/icon/32?93edc2b0d0185625',
+        url: '../../../images/jwt.svg',
     },
     {
         id: 20,
