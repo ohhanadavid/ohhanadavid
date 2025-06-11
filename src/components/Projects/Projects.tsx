@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github,Youtube,Globe } from "lucide-react";
 import { IProjectsModel, projects } from "./projects.config";
 
 type ProjectCardProps = {
@@ -9,13 +9,16 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
+    
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+    
       className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
+    
     >
-      <div className="p-6">
+      <div className="p-6" style={{ direction: 'ltr' }}>
         <div
           className="h-48 flex items-center justify-center perspective-card"
           style={{
@@ -52,7 +55,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             </span>
           ))}
         </div>
-        <a
+        
+         <a
           href={project.repoUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -61,6 +65,28 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <Github className="h-5 w-5 mr-2" />
           View Repository
         </a>
+        <br />
+        {project.linkUrl&&<a
+          href={project.linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
+          hidden={!project.linkUrl}
+        >
+          <Globe className="h-5 w-5 mr-2" />
+          link
+        </a>}
+        <br />
+        {project.videoUrl &&<a
+          href={project.videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
+          
+        >
+          <Youtube className="h-5 w-5 mr-2" />
+          Video
+        </a>}
       </div>
     </motion.div>
   );
@@ -70,7 +96,7 @@ const Projects = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ direction: 'ltr' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
