@@ -4,6 +4,8 @@ import Projects from './components/Projects/Projects';
 import Background from './components/Background';
 import './i18n';
 import Skills from './components/Skills';
+import AboutME from './components/AboutMe';
+import Posts from './components/Posts';
 
 function App() {
 
@@ -12,8 +14,10 @@ function App() {
         <Background />
         <Navbar />
         <Hero />
+        <AboutME />
         <Projects />
         <Skills />
+        <Posts/>
       </div>
   );
 }

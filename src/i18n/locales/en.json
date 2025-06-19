@@ -3,13 +3,25 @@
     "home": "Home",
     "projects": "Projects",
     "skills": "Skills",
+    "posts": "Posts",
+    "about": "About",
+    "cv":"CV",
     "testimonials": "Testimonials",
     "contact": "Contact"
+  },
+  "cv":{
+    "title":"CV"
   },
   "hero": {
     "greeting": "Hi, I'm",
     "role": "Backend Developer",
     "description": "I believe good code starts with understanding the need and ends with elegant simplicity. "
+    
+  },
+  "aboutME":{
+    "title": "About Me...",
+    "description": "Passionate and Results-Driven Backend Developer with a B.Sc. in Computer Science. I bring to the table strong problem-solving capabilities, a passion for continuous learning, and a natural curiosity for exploring new technologies. Through challenging personal projects, I've gained practical experience in developing end-to-end solutions, excelling at data analysis and drawing meaningful conclusions. A proactive team player with excellent communication skills and a high degree of independence, I am eagerly seeking a challenging opportunity in software development where I can make a significant contribution, grow, and have an impact."
+
   },
   "projects": {
     "title": "Projects",
@@ -19,6 +31,12 @@
     "title": "Skills",
     "frontend": "Frontend",
     "backend": "Backend",
+    "databases": "Databases",
+    "cloud": "Cloud",
+    "languages": "Languages",
     "tools": "Tools & Technologies"
-  }
+  },
+  "posts":{
+  "title":"posts"
+}
 }

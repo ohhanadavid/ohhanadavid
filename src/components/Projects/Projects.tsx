@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Github,Youtube,Globe } from "lucide-react";
+import { Github,Globe } from "lucide-react";
 import { IProjectsModel, projects } from "./projects.config";
 import YouTubePlayerButton from "../Youtube/Screen";
 
@@ -9,6 +9,7 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const { i18n } = useTranslation();
   return (
     
     <motion.div
@@ -40,11 +41,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.title}
           </motion.h3>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-4">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-4 text-center">
           {project.title}
         </h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-300">
-          {project.description}
+        <p className="mt-2 text-gray-600 dark:text-gray-300" dir={i18n.language === 'he' ? 'rtl' : 'ltr'}>
+          {i18n.language === 'he'? project.descriptionHE : project.descriptionEN}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
@@ -88,10 +89,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 };
 
 const Projects = () => {
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ direction: 'ltr' }}>
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ direction: i18n.language==='he'?'rtl':'ltr' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}

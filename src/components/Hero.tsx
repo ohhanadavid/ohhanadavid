@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             <span className="block">{t('hero.greeting')}</span>
             <span className="block text-indigo-600 dark:text-indigo-400 mt-2">David Ohhana</span>
           </h1>
-          <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+          <p className="mt-3 font-bold text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
             {t('hero.role')}
           </p>
           <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
@@ -38,6 +38,12 @@ const Hero: React.FC = () => {
               <Mail className="h-6 w-6" />
             </a>
           </div>
+           {/* <p className="mt-7 font-bold text-base text-gray-500 dark:text-gray-400 sm:mt-7 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-7 md:text-xl">
+            {t('hero.aboutMe')}
+          </p>
+          <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+            {t('hero.aboutMeDescription', { sum: 25 })}
+          </p> */}
         </motion.div>
       </div>
     </div>

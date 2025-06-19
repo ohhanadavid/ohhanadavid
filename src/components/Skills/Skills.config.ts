@@ -9,7 +9,7 @@ export const skills: ISkillsModel[] = [
     {
         id: 1,
         title: 'Java',
-        category: 'tools',
+        category: 'languages',
         url: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/121px-Java_programming_language_logo.svg.png',
     },
     {
@@ -27,7 +27,7 @@ export const skills: ISkillsModel[] = [
     {
         id: 4,
         title: 'PostgreSQL',
-        category: 'tools',
+        category: 'databases',
         url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg',
     },
     {
@@ -39,7 +39,7 @@ export const skills: ISkillsModel[] = [
     {
         id: 6,
         title: 'AWS',
-        category: 'tools',
+        category: 'cloud',
         url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
     },
     {
@@ -69,51 +69,46 @@ export const skills: ISkillsModel[] = [
     {
         id: 11,
         title: 'JavaScript',
-        category: 'tools',
+        category: 'languages',
         url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
     },
     {
         id: 12,
         title: 'TypeScript',
-        category: 'tools',
+        category: 'languages',
         url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
     },
     {
         id: 14,
         title: 'MongoDB',
-        category: 'tools',
+        category: 'databases',
         url: 'https://upload.wikimedia.org/wikipedia/en/5/5a/MongoDB_Fores-Green.svg',
     },
     {
         id: 15,
         title: 'Redis',
-        category: 'tools',
+        category: 'databases',
         url: 'https://upload.wikimedia.org/wikipedia/he/c/cb/Redis_Logo.png',
     },
     {
         id: 16,
         title: 'Elasticsearch',
-        category: 'tools',
+        category: 'databases',
         url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Elasticsearch_logo.svg',
     },
     {
         id: 17,
         title: 'Cassandra',
-        category: 'tools',
+        category: 'databases',
         url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg',
     },
     {
         id: 18,
         title: 'Python',
-        category: 'tools',
+        category: 'languages',
         url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg',
     },
-    {
-        id: 19,
-        title: 'JWT',
-        category: 'tools',
-        url: '../../../images/jwt.svg',
-    },
+ 
     {
         id: 20,
         title: 'KeyCloak',
@@ -123,7 +118,7 @@ export const skills: ISkillsModel[] = [
     { 
         id:23,
         title: 'C#',
-        category: 'tools',
+        category: 'languages',
         url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg',
     },
     {
