@@ -1,80 +1,57 @@
-// src/components/YouTubePlayerButton.js
-
-import { use } from 'i18next';
 import { Youtube } from 'lucide-react';
-import React, { useState, useRef, useEffect } from 'react';
-import YouTube from 'react-youtube'; // ייבוא הקומפוננטה של נגן יוטיוב
-
+import React, { useState, useRef } from 'react';
+import YouTube from 'react-youtube';
 interface YouTubePlayerButtonProps {
   videoId: string;
 }
 
 const YouTubePlayerButton: React.FC<YouTubePlayerButtonProps> = ({ videoId }) => {
-  const [showPlayer, setShowPlayer] = useState(false); // מצב לשליטה על הצגת הנגן
-  const playerRef = useRef<YT.Player | null>(null); // Ref לגישה ישירה לאובייקט הנגן
+  const [showPlayer, setShowPlayer] = useState(false);
+  const playerRef = useRef<YT.Player | null>(null);
 
-useEffect(() => {
-  console.log('YouTube Player Button component mounted', videoId);
-}, []);
-  // אופציות לנגן יוטיוב
   const opts = {
     height: '390',
     width: '640',
     playerVars: {
-      autoplay: 1, // הפעל אוטומטית כאשר הנגן נטען
-      controls: 1, // הצג פקדים
-      rel: 0, // אל תציג סרטונים קשורים בסיום
+      autoplay: 1,
+      controls: 1,
+      rel: 0,
     },
   };
 
-  // פונקציה שתופעל כאשר הנגן מוכן
-interface YouTubePlayerEvent {
+  interface YouTubePlayerEvent {
     target: YT.Player;
     data?: number;
-}
+  }
 
-const onReady = (event: YouTubePlayerEvent) => {
-    playerRef.current = event.target; // שמור הפניה לנגן
+  const onReady = (event: YouTubePlayerEvent) => {
+    playerRef.current = event.target;
     console.log('YouTube player is ready.');
-    // אם רוצים, אפשר להפעיל את הסרטון כאן אם הוא לא מופעל אוטומטית דרך playerVars
-    // event.target.playVideo();
-};
+  };
 
-  // פונקציה שתופעל כאשר לוחצים על הכפתור
   const handlePlayClick = () => {
-    setShowPlayer(true); // הצג את הנגן
-
-    // אם הנגן כבר קיים ומוכן, הפעל אותו
+    setShowPlayer(true);
     if (playerRef.current) {
       playerRef.current.playVideo();
     }
-    // הערה: במצב של autoplay: 1 ב-opts, הסרטון יופעל אוטומטית כש-`YouTube` קומפוננטה מרונדרת.
-    // אם לא היית משתמש ב-autoplay, היית צריך להוסיף כאן לוגיקה שתפעיל את הסרטון לאחר שהנגן נטען.
   };
 
-  // פונקציה שתופעל כאשר מצב הנגן משתנה
-interface YouTubePlayerStateChangeEvent {
+  interface YouTubePlayerStateChangeEvent {
     target: YT.Player;
     data: number;
-}
+  }
 
-const onStateChange = (event: YouTubePlayerStateChangeEvent) => {
-    if (event.data === window.YT.PlayerState.ENDED) {
-        console.log('Video ended.');
-        // אפשרות: להסתיר את הנגן שוב בסיום
-        // setShowPlayer(false);
-    }
-};
+  const onStateChange = (event: YouTubePlayerStateChangeEvent) => {};
 
   return (
-    <div >
+    <div>
       {!showPlayer && (
         <button
           onClick={handlePlayClick}
           className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
         >
-            <Youtube className="h-5 w-5 mr-2" />
-            Video
+          <Youtube className="h-5 w-5 mr-2" />
+          Video
         </button>
       )}
 
@@ -88,13 +65,12 @@ const onStateChange = (event: YouTubePlayerStateChangeEvent) => {
             >
               ×
             </button>
-            <div className="w-full  h-[70vh] ">
+            <div className="w-full h-[70vh] ">
               <YouTube
                 videoId={videoId}
                 opts={{
                   ...opts,
                   width: '100%',
-                  //height: '100%',
                 }}
                 onReady={onReady}
                 onStateChange={onStateChange}

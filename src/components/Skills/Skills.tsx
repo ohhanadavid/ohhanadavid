@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { ISkillsModel,skills } from "./Skills.config"
 import { motion } from "framer-motion";
+import i18n from "../../i18n";
 
 
 type SkillsProps = {
@@ -57,7 +58,7 @@ const SkillsItem = ({ category }: SkillsItemProps) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        dir={i18n.language === 'he' ? 'rtl' : 'ltr'}
+        dir={i18n.dir()}
       >
         <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-3xl">
           {t(title)}
@@ -88,7 +89,8 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl mb-8">
+          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl mb-8"
+          dir={i18n.dir()}>
             {t("skills.title")}
           </h2>
         </motion.div>

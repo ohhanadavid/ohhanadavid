@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Github,Globe } from "lucide-react";
 import { IProjectsModel, projects } from "./projects.config";
 import YouTubePlayerButton from "../Youtube/Screen";
+import { useEffect } from "react";
+import { i } from "framer-motion/client";
 
 type ProjectCardProps = {
   project: IProjectsModel;
@@ -10,6 +12,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const { i18n } = useTranslation();
+
   return (
     
     <motion.div
@@ -44,16 +47,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-4 text-center">
           {project.title}
         </h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-300" dir={i18n.language === 'he' ? 'rtl' : 'ltr'}>
-          {i18n.language === 'he'? project.descriptionHE : project.descriptionEN}
+        <p className="mt-2 text-gray-600 dark:text-gray-300" dir={i18n.dir()}>
+          {i18n.language === 'he' ? "yes" : "no"}
+          {project.description[i18n.language] }
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
+            
               key={tech}
               className="px-2 py-1 text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
             >
               {tech}
+              
             </span>
           ))}
         </div>

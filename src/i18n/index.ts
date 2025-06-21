@@ -13,9 +13,12 @@ i18n
       he: { translation: he }
     },
     fallbackLng: 'en',
+    load: 'languageOnly',
     interpolation: {
       escapeValue: false
     }
+  }).then(() => {
+    i18n.changeLanguage(i18n.language.split('-')[0]);
   });
 
 export default i18n;

@@ -22,15 +22,15 @@ const PostCard = ({ post }: PostsCardProps) => {
      style={{
             background: `linear-gradient(135deg, ${post.color}22, ${post.color}11)`,
             borderRadius: "0.5rem",
-            direction: i18n.language === 'he' ? 'rtl' : 'ltr'
+            direction: i18n.dir()
           }}
     >
         
         <h3 className="text-3xl font-bold text-gray-900 dark:text-white mt-4 text-center p-2">
-          {i18n.language==='he'?post.titleHE:post.titleEN}
+          {post.title[i18n.language]}
         </h3>
         <p className="mt-5 text-gray-600 dark:text-gray-300">
-          {i18n.language === 'he'? post.descriptionHE : post.descriptionEN}
+          {post.description[i18n.language] }
         </p>
         <br />
         {post.linkUrl&&<a
