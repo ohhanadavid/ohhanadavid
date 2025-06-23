@@ -5,7 +5,7 @@ import type { Language } from '../../types';
 import { themeMode, useTheme } from '../../hooks/useTheme';
 import useLanguage from './useLanguage';
 import useScroll from './useScroll';
-import useCV from './useCV';
+import useCV from '../CV/useCV';
 
 const Navbar: React.FC = () => {
   const {theme, toggleTheme} = useTheme();

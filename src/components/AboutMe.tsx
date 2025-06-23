@@ -8,7 +8,7 @@ const AboutME: React.FC = () => {
 
   return (
     <div id="about" className=" flex items-center justify-center bg-gray-50 dark:bg-gray-900"
-        dir ={i18n.language === 'he' ? 'rtl' : 'ltr'}>
+        dir ={i18n.dir()}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,9 +17,9 @@ const AboutME: React.FC = () => {
           className="text-center"
         >
       
-           <p className="mt-7 font-bold text-base text-gray-500 dark:text-gray-400 sm:mt-7 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-7 md:text-xl">
+           <h3 className="text-3xl font-bold text-gray-900 dark:text-white mt-4 text-center p-2">
             {t('aboutME.title')}
-          </p>
+          </h3>
           <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
             {t('aboutME.description', { sum: 25 })}
           </p>

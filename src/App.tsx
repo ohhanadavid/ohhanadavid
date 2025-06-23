@@ -6,6 +6,7 @@ import './i18n';
 import Skills from './components/Skills';
 import AboutME from './components/AboutMe';
 import Posts from './components/Posts';
+import  CV  from './components/CV/CV';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Hero />
         <AboutME />
+        <CV/>
         <Projects />
         <Skills />
         <Posts/>
