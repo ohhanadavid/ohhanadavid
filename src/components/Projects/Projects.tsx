@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           }}
         >
           <motion.h3
-            className="text-3xl font-bold"
+            className="text-3xl font-bold text-center"
             style={{ color: project.color }}
             animate={{ rotateX: [0, 10, 0], rotateY: [0, 15, 0] }}
             transition={{

@@ -145,4 +145,10 @@ export const skills: ISkillsModel[] = [
         category: 'tools',
         url: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Jenkins_logo_with_title.svg',
     },
+    {
+        id:28,
+        title: 'SqlAlchemy',
+        category: 'tools',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/SQLAlchemy.svg',
+    }
 ];

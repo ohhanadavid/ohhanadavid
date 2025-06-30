@@ -66,5 +66,16 @@ export const projects: IProjectsModel[] = [
         technologies: ['Spring Boot', 'Redis', 'MongoDB', 'REST APIs','Cassandra'],
         repoUrl: 'https://github.com/ohhanadavid/tinyUrl',
         color: '#739dcc' 
+    },
+         {
+        id: 6,
+        title: 'Student Management System',
+        description: {
+            en: 'A web Service project built with Python 3.12 and Flask-RESTx, designed for managing academic information on students and their grades. It features full CRUD functionality with advanced Filtering, Pagination, and Sorting (FPS) capabilities. The system leverages PostgreSQL (containerized with Docker) and is managed using Flask-Migrate. For security, the API is secured with JWT and includes role-based authorizations. Additionally, the project integrates with external services for SMS notifications (via SMS4FREE) and AWS S3 for secure student profile picture storage using presigned URLs.',
+            he: 'פרויקט Web Service מקיף שנבנה בPython 3.12 באמצעות Flask-RESTx, ומיועד לניהול מידע אקדמי על סטודנטים וציוניהם. הוא כולל פונקציונליות CRUD מלאה עם יכולות סינון, חלוקה לעמודים ומיון (FPS) מתקדמות. המערכת עושה שימוש בPostgreSQL (מקוּנטיינר בDocker) ומנוהלת באמצעות Flask-Migrate. לצורך אבטחה, ה-API מאובטח עם JWT וכולל הרשאות מבוססות תפקידים. בנוסף, הפרויקט משלב אינטגרציות עם שירותים חיצוניים: שליחת SMS (דרך SMS4FREE) ואחסון תמונות פרופיל בAWS S3 באמצעות Presigned URLs מאובטחים.',
+        },
+        technologies: ['Python', 'Flask', 'PostgreSQL', 'REST APIs','Docker', 'JWT', 'AWS S3','SQLAlchemy'],
+        repoUrl: 'https://github.com/ohhanadavid/basic-python',
+        color: '#4CAF50' 
     }
 ];
