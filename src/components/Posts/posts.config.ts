@@ -35,19 +35,33 @@ export const posts: IPostsModel[] = [
             linkUrl: 'https://www.linkedin.com/posts/david-ohhana-backend_%D7%90%D7%99%D7%9A-%D7%9C%D7%99%D7%A6%D7%A8-%D7%A4%D7%A8%D7%95%D7%99%D7%99%D7%A7%D7%98-%D7%91spring-activity-7342793539640045569-3Nv_?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgzz3IBxmiPzqHz3QAlnw2HNVT-B2PIMa0',
             color: '#61DAFB'
     },
-    //  {
-    //     id: 3,
-    //     title: {
-    //         en: 'Libraries, Lombok, and what\'s in between',
-    //         he: 'ספריות, Lombok, ומה שביניהן',
+     {
+        id: 3,
+        title: {
+            en: 'Libraries, Lombok, and what\'s in between',
+            he: 'ספריות, Lombok, ומה שביניהן',
 
-    //     },
-    //     description: {
-    //         en: ' A brief overview of how to add libraries, a bit about Lombok, and a bit about Hibernate.',
-    //         he: 'איך מוסיפים ספריות, קצת על lombok וקצת על hibernate ',
-    //     },
-    //         linkUrl: '',
-    //         color: '#4CAF50'
-    // },
+        },
+        description: {
+            en: ' A brief overview of how to add libraries, a bit about Lombok, and a bit about Hibernate.',
+            he: 'איך מוסיפים ספריות, קצת על lombok וקצת על hibernate ',
+        },
+            linkUrl: 'https://www.linkedin.com/posts/david-ohhana-backend_dependency-activity-7345692710642577410-Wl0o?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgzz3IBxmiPzqHz3QAlnw2HNVT-B2PIMa0',
+            color: '#4CAF50'
+    },
+    {
+        id: 4,
+        title: {
+            en: 'Config!!',
+            he: 'מקנפגים!!',
+
+        },
+        description: {
+            en: ' We created a project, added packages, defined DTOs, now we need to set up configurations! How do we do that?',
+            he: 'יצרנו פרוייקט,הוספנו חבילות,הגדרנו DTOs, עכשיו צריך להגדיר קונפיגורציות! איך עושים את זה?',
+        },
+            linkUrl: 'https://www.linkedin.com/posts/david-ohhana-backend_configuration-in-spring-activity-7348591740137713665-Baxj?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgzz3IBxmiPzqHz3QAlnw2HNVT-B2PIMa0',
+            color: '#FF9800'
+    },
     
 ];
