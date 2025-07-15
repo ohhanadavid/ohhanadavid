@@ -63,5 +63,20 @@ export const posts: IPostsModel[] = [
             linkUrl: 'https://www.linkedin.com/posts/david-ohhana-backend_configuration-in-spring-activity-7348591740137713665-Baxj?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgzz3IBxmiPzqHz3QAlnw2HNVT-B2PIMa0',
             color: '#FF9800'
     },
+     {
+        id: 5,
+        title: {
+            en: 'DI',
+            he: 'DI',
+
+        },
+        description: {
+            en: 'We all want someone to do the work for us, right? And that\'s exactly what Spring does for us in DI.',
+            he: 'כולנו רוצים שמישהו יעשה עבורנו את העבודה, לא? וזה בדיוק מה שSpring עושה עבורנו בDI',
+        },
+            linkUrl: 'https://www.linkedin.com/posts/david-ohhana-backend_di-activity-7350766138856738816-HHBK?utm_source=share&utm_medium=member_desktop&rcm=ACoAADgzz3IBxmiPzqHz3QAlnw2HNVT-B2PIMa0',
+            color: '#9C27B0'
+    },
+
     
 ];
