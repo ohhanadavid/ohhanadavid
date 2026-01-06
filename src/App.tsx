@@ -8,9 +8,22 @@ import AboutME from './components/AboutMe';
 import Posts from './components/Posts';
 import  CV  from './components/CV/CV';
 
+
+import { StagewiseToolbar } from '@stagewise/toolbar-react';
+import ReactPlugin from '@stagewise-plugins/react';
+
 function App() {
 
+const stagewiseConfig = {
+  plugins: [ReactPlugin],
+};
+
+
+
+
   return (
+    <>
+      <StagewiseToolbar config={stagewiseConfig} />
       <div className={`min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200`}>
         <Background />
         <Navbar />
@@ -21,6 +34,7 @@ function App() {
         <Skills />
         <Posts/>
       </div>
+    </>
   );
 }
 
