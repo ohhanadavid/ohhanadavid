@@ -20,7 +20,7 @@ const AboutME: React.FC = () => {
            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mt-4 text-center p-2">
             {t('aboutME.title')}
           </h3>
-          <p className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
+          <p dir={i18n.dir()} className="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl whitespace-pre-line">
             {t('aboutME.description', { sum: 25 })}
           </p>
         </motion.div>

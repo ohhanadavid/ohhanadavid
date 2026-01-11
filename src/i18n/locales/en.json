@@ -16,15 +16,14 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "role": "Backend Developer",
-    "description": "If it works and it's clean - it's good."
+    "role": "Software Developer",
+    "description": "Software Developer (B.Sc. Computer Science) | Backend Developer | Java, Spring Boot & Microservices"
     
   },
-  "aboutME":{
-    "title": "About Me...",
-    "description": "Backend Developer with a B.Sc. in Computer Science and practical experience in developing end-to-end solutions in personal projects. Skilled in problem-solving, data analysis, and drawing conclusions, with a continuous interest in new technologies and self-learning. Possesses strong independent work capabilities, alongside effective teamwork skills. Seeking a challenging role in software development where I can continue to grow professionally and and contribute to both the team and the product."
-
-  },
+"aboutME":{
+  "title": "About Me...",
+  "description": "Software Developer with a B.Sc. in Computer Science. Hands-on experience developing software systems through academic and personal projects, with a solid understanding of development workflows, teamwork, and writing clean, maintainable code.\n\nPrimary focus – Backend Development: Experience building backend services and REST APIs using Java and Spring Boot, working with microservices-based architectures, and integrating with both relational and non-relational databases (MySQL, PostgreSQL, MongoDB). Additional backend experience with Python and Flask (including SQLAlchemy) and development in C#.\n\nDistributed systems, infrastructure, and tooling: Experience working with Docker, version control using Git, and CI/CD processes (including Jenkins). Hands-on exposure to Kafka and Redis, usage of Elasticsearch, and implementing authentication and authorization mechanisms using Keycloak and JWT. Basic experience with Dapr as part of distributed system components."
+},
   "projects": {
     "title": "Projects",
     "viewProject": "View Project"
